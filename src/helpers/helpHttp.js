@@ -1,4 +1,4 @@
-export const helpHttps = () => {
+export const helpHttp = () => {
   const customFetch = (endpoint, options) => {
     const defaultHeaders = {
       accept: "application/json",
@@ -18,21 +18,23 @@ export const helpHttps = () => {
     // El metodo delete de los objetos permite borrar propiedades
     if (!options.body) delete options.body;
 
-    console.log(options);
+    // console.log(options);
     // Activar el controller abort en caso de no tener respuesta de la peticiones
     setTimeout(() => {
       controller.abort();
     }, 3000);
 
-    return fetch(endpoint, options).then((res) =>
-      res.ok
-        ? res.json()
-        : Promise.reject({
-            err: true,
-            status: res.status || "00",
-            statusText: res.statusText || "Ocurrió un error",
-          })
-    );
+    return fetch(endpoint, options)
+      .then((res) =>
+        res.ok
+          ? res.json()
+          : Promise.reject({
+              err: true,
+              status: res.status || "00",
+              statusText: res.statusText || "Ocurrió un error",
+            })
+      )
+      .catch((err) => err);
   };
 
   const get = (url, options = {}) => customFetch(url, options);
