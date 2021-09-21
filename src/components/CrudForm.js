@@ -54,14 +54,14 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
           name="name"
           placeholder="Nombre"
           onChange={handleChange}
-          value={form.name}
+          value={form.name || ""}
         />
         <input
           type="text"
           name="constellation"
           placeholder="Constelación"
           onChange={handleChange}
-          value={form.constellation}
+          value={form.constellation || ""}
         />
         <input type="submit" value="Enviar" />
         <input type="reset" value="Limpiar" onClick={handleReset} />
