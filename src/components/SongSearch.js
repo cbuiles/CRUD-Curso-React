@@ -26,7 +26,7 @@ const SongSearch = () => {
         helpHttp().get(songUrl),
       ]);
 
-      console.log(artistRes, songRes);
+      // console.log(artistRes, songRes);
 
       setBio(artistRes);
       setLyric(songRes);
@@ -37,19 +37,21 @@ const SongSearch = () => {
   }, [search]);
 
   const handleSearch = (data) => {
-    console.log(data);
+    // console.log(data);
     setSearch(data);
   };
 
   return (
     <div>
       <h2>Song Search</h2>
-      {loading && <Loader />}
-      <SongForm handleSearch={handleSearch} />
-      {/* En caso de que la consulta de Search tenga algo y el loading ya no este cargando renderiza los detalles de las canciones */}
-      {search && !loading && (
-        <SongDetails search={search} lyric={lyric} bio={bio} />
-      )}
+      <article className="grid-1-3">
+        {loading && <Loader />}
+        <SongForm handleSearch={handleSearch} />
+        {/* En caso de que la consulta de Search tenga algo y el loading ya no este cargando renderiza los detalles de las canciones */}
+        {search && !loading && (
+          <SongDetails search={search} lyric={lyric} bio={bio} />
+        )}
+      </article>
     </div>
   );
 };

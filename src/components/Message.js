@@ -12,7 +12,9 @@ const Message = ({ msg, bgColor }) => {
 
   return (
     <div style={styles}>
-      <p>{msg}</p>
+      {/* <p>{msg}</p> */}
+      {/* Para poder renderizar etiquetas HTML en JFX */}
+      <p dangerouslySetInnerHTML={{ __html: msg }} />
     </div>
   );
 };
