@@ -32,7 +32,6 @@ const SongForm = ({ handleSearch }) => {
 
   return (
     <div>
-      <h2>Formulario</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
