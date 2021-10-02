@@ -3,7 +3,7 @@
 // Hoook personalizado para cuando necesitemso hacer una peticion Fetch y necesitamos guardarlo en variables de estado
 import { useState, useEffect } from "react";
 
-export const useFectch = (url) => {
+export const useFetch = (url) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);

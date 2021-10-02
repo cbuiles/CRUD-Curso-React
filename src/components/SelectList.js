@@ -1,9 +1,9 @@
-import { useFectch } from "../hooks/useFetch";
+import { useFetch } from "../hooks/useFetch";
 import Loader from "./Loader";
 import Message from "./Message";
 
 const SelectList = ({ title, url, handleChange }) => {
-  const { data, error, loading } = useFectch(url);
+  const { data, error, loading } = useFetch(url);
 
   // console.log(data, error, loading);
 
